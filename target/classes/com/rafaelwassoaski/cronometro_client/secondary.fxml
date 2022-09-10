@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" fx:controller="com.rafaelwassoaski.cronometro_client.SecondaryController" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fx:id="timer" fill="#001eff" fontSmoothingType="LCD" layoutX="150.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0:00" textAlignment="CENTER" wrappingWidth="300.078125">
+         <font>
+            <Font size="120.0" />
+         </font>
+      </Text>
+      <Button id="zerar_button" layoutX="14.0" layoutY="226.0" mnemonicParsing="false" text="Zerar" onAction="#zerarTimer">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button id="um_minuto_button" layoutX="232.0" layoutY="226.0" mnemonicParsing="false" text="1 minuto" onAction="#umMinutoTimer">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button id="dois_minutos_button" layoutX="343.0" layoutY="226.0" mnemonicParsing="false" text="2 minutos" onAction="#doisMinutosTimer">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button id="tres_minutos_button" layoutX="463.0" layoutY="226.0" mnemonicParsing="false" text="3 minutos" onAction="#tresMinutosTimer">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button id="trinta_secundos_button" layoutX="90.0" layoutY="226.0" mnemonicParsing="false" text="30 segundos">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button id="quatro_minutos_button" layoutX="45.0" layoutY="284.0" mnemonicParsing="false" text="4 minutos" onAction="#quatroMinutosTimer">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
