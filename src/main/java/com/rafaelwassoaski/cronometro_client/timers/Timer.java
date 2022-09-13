@@ -57,4 +57,8 @@ public abstract class Timer {
 
         return new Minute(minutes, seconds);
     }
+
+    public int getSeconds() {
+        return seconds;
+    }
 }

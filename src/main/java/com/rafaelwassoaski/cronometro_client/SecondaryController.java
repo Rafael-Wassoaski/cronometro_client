@@ -1,6 +1,7 @@
 package com.rafaelwassoaski.cronometro_client;
 
 import java.io.IOException;
+import com.rafaelwassoaski.cronometro_client.socket.Client;
 import com.rafaelwassoaski.cronometro_client.timers.FourMinute;
 import com.rafaelwassoaski.cronometro_client.timers.OneMinute;
 import com.rafaelwassoaski.cronometro_client.timers.ThreeMinute;
@@ -31,25 +32,38 @@ public class SecondaryController {
     @FXML
     private void umMinutoTimer() throws IOException {
         OneMinute minutes = new OneMinute();
+        this.sendMinutes(minutes);
+
         this.countDown(minutes);
     }
 
     @FXML
     private void doisMinutosTimer() throws IOException {
         TwoMinute minutes = new TwoMinute();
+        this.sendMinutes(minutes);
+
         this.countDown(minutes);
     }
 
     @FXML
     private void tresMinutosTimer() throws IOException {
         ThreeMinute minutes = new ThreeMinute();
+        this.sendMinutes(minutes);
+
         this.countDown(minutes);
     }
 
     @FXML
     private void quatroMinutosTimer() throws IOException {
         FourMinute minutes = new FourMinute();
+        this.sendMinutes(minutes);
         this.countDown(minutes);
+    }
+
+    private void sendMinutes(Timer timeCounter){
+        Client client = new Client();
+
+        client.sendStringMessage(Integer.toString(timeCounter.getSeconds()));
     }
 
     private void countDown(Timer timeToCount) throws IOException {
