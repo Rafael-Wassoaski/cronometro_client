@@ -32,10 +32,6 @@ public abstract class Timer {
         }
     }
 
-    private void resetCountColor(Text text){
-        text.setFill(Paint.valueOf("001eff"));
-    }
-
     private Minute secondsToMinutes(){
         if(seconds / 60 < 1){
             return new Minute(0, seconds);
