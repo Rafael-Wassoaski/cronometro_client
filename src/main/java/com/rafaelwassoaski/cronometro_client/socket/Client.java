@@ -15,9 +15,7 @@ public class Client {
     private final int PORT = 9090;
 
     public static void setServerAddress(String serverAddres){
-        if(serverAddres == null){
-            serverAddres = serverAddres;
-        }
+        Client.serverAddres = serverAddres;
     }
 
     public void sendStringMessage(String message){
@@ -59,7 +57,7 @@ public class Client {
     }
 
     private void openConnection() throws UnknownHostException, IOException{
-        this.socket = new Socket(serverAddres, PORT);
+        this.socket = new Socket(Client.serverAddres, PORT);
     }
 
     private void closeConnection() throws IOException{

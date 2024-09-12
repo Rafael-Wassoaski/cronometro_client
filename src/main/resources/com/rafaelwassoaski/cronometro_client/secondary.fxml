@@ -22,22 +22,27 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button id="dois_minutos_button" layoutX="343.0" layoutY="226.0" mnemonicParsing="false" onAction="#doisMinutosTimer" text="2 minutos">
+      <Button id="um_minuto_trinta_button" layoutX="343.0" layoutY="226.0" mnemonicParsing="false" onAction="#umMinutoTrintaTimer" text="1:30 minutos">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button id="tres_minutos_button" layoutX="463.0" layoutY="226.0" mnemonicParsing="false" onAction="#tresMinutosTimer" text="3 minutos">
+      <Button id="dois_minutos_button" layoutX="490.0" layoutY="226.0" mnemonicParsing="false" onAction="#doisMinutosTimer" text="2 minutos">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button id="trinta_secundos_button" layoutX="90.0" layoutY="226.0" mnemonicParsing="false" text="30 segundos">
+      <Button id="tres_minutos_button" layoutX="90.0" layoutY="284.0" mnemonicParsing="false" onAction="#tresMinutosTimer" text="3 minutos">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button id="quatro_minutos_button" layoutX="45.0" layoutY="284.0" mnemonicParsing="false" onAction="#quatroMinutosTimer" text="4 minutos">
+      <Button id="trinta_secundos_button" layoutX="90.0" layoutY="226.0" mnemonicParsing="false" onAction="#trintaSegunodsTimer" text="30 segundos">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button id="quatro_minutos_button" layoutX="232.0" layoutY="284.0" mnemonicParsing="false" onAction="#quatroMinutosTimer" text="4 minutos">
          <font>
             <Font size="20.0" />
          </font>

@@ -23,7 +23,7 @@ public class PrimaryController {
     @FXML
     public void setIpAddress() throws IOException {
         String ipServerAddress = ipAddress.getText();
-
+        System.out.println("IP " + ipServerAddress);
         if (ipServerAddress == null) {
             this.invalidIp.setVisible(true);
             return;

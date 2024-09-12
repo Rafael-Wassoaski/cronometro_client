@@ -7,11 +7,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 import com.rafaelwassoaski.cronometro_client.socket.Client;
 import com.rafaelwassoaski.cronometro_client.som.Som;
-import com.rafaelwassoaski.cronometro_client.timers.FourMinute;
-import com.rafaelwassoaski.cronometro_client.timers.OneMinute;
-import com.rafaelwassoaski.cronometro_client.timers.ThreeMinute;
-import com.rafaelwassoaski.cronometro_client.timers.Timer;
-import com.rafaelwassoaski.cronometro_client.timers.TwoMinute;
+import com.rafaelwassoaski.cronometro_client.timers.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Paint;
@@ -24,6 +20,8 @@ public class SecondaryController {
 
     private Thread countDownThread;
 
+    private boolean playCampainha = true;
+
     @FXML
     private void switchToPrimary() throws IOException {
         App.setRoot("primary");
@@ -32,12 +30,35 @@ public class SecondaryController {
 
     @FXML
     private void zerarTimer() throws IOException {
-        timer.setText("0:00");
+        ZeroSeconds minutes = new ZeroSeconds();
+        playCampainha = false;
+        this.sendMinutes(minutes);
+
+        this.countDown(minutes);
     }
 
     @FXML
     private void umMinutoTimer() throws IOException {
         OneMinute minutes = new OneMinute();
+        playCampainha = true;
+        this.sendMinutes(minutes);
+
+        this.countDown(minutes);
+    }
+
+    @FXML
+    private void umMinutoTrintaTimer() throws IOException {
+        OneMinuteAndThirtySeconds minutes = new OneMinuteAndThirtySeconds();
+        playCampainha = true;
+        this.sendMinutes(minutes);
+
+        this.countDown(minutes);
+    }
+
+    @FXML
+    private void trintaSegunodsTimer() throws IOException {
+        ThirtySeconds minutes = new ThirtySeconds();
+        playCampainha = true;
         this.sendMinutes(minutes);
 
         this.countDown(minutes);
@@ -46,6 +67,7 @@ public class SecondaryController {
     @FXML
     private void doisMinutosTimer() throws IOException {
         TwoMinute minutes = new TwoMinute();
+        playCampainha = true;
         this.sendMinutes(minutes);
 
         this.countDown(minutes);
@@ -54,6 +76,7 @@ public class SecondaryController {
     @FXML
     private void tresMinutosTimer() throws IOException {
         ThreeMinute minutes = new ThreeMinute();
+        playCampainha = true;
         this.sendMinutes(minutes);
 
         this.countDown(minutes);
@@ -62,6 +85,7 @@ public class SecondaryController {
     @FXML
     private void quatroMinutosTimer() throws IOException {
         FourMinute minutes = new FourMinute();
+        playCampainha = true;
         this.sendMinutes(minutes);
         this.countDown(minutes);
     }
@@ -82,6 +106,7 @@ public class SecondaryController {
     	Som som = new Som();
     	
     	try {
+            playCampainha = true;
 			som.play();
 		} catch (LineUnavailableException | UnsupportedAudioFileException | IOException e) {
 			// TODO Auto-generated catch block
@@ -115,8 +140,11 @@ public class SecondaryController {
         Thread thread = new Thread(() -> {
             try {
                 timeToCount.countDown(timer);
-                this.tocarCampainha();
-                this.resetCountColor();
+
+                if(this.playCampainha){
+                    this.tocarCampainha();
+                    this.resetCountColor();
+                }
             } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
